@@ -1,31 +1,25 @@
 <template>
-    <v-ons-page>
       <v-ons-toolbar>
-        <div class="right">
-          <v-ons-toolbar-button>
-              <slot name="back"></slot>
-          </v-ons-toolbar-button>
+        <div class="left">
+            <slot name="back"></slot>
         </div>
         <div class="center">{{ title }}</div>
         <div class="right">
-          <v-ons-toolbar-button>
-                <slot name="forward"></slot>
-          </v-ons-toolbar-button>
+            <slot name="forward"></slot>
         </div>
       </v-ons-toolbar>
-    </v-ons-page>
 </template>
 <script>
   export default{
     props: {
         title: {
             type: String,
-            required: true
+            default: "GitHub App"
         }
     },
     data() {
       return {
-        title: 'AppToolbar'
+       
       };
     },
   };
