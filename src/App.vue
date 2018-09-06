@@ -6,13 +6,15 @@
       <div class="center">
          <app-search :query.sync="query"/>
          <div v-if="listOfRepo.length > 0">
-          <v-ons-list>
-             <v-ons-list-header>Repositories of {{query}}</v-ons-list-header>
+            <v-ons-list-header>>Repositories of {{query}}</v-ons-list-header>
             <v-ons-list-item v-for="repo in listOfRepo" :key="repo.id">
-            <img :src="repo.owner.avatar_url" height="42" width="42">
-            <p align="right">{{ repo.name}}  {{repo.description}}</p>
-              </v-ons-list-item>
-          </v-ons-list>
+              <div class="left">
+                <img class="list-item__thumbnail" :src="repo.owner.avatar_url" height="42" width="42">
+              </div>
+              <div class="center">
+                <span class="list-item__title">{{ repo.name}} </span><span class="list-item__subtitle">{{repo.description}}</span>
+              </div>
+            </v-ons-list-item>
         </div>
       </div>
          
