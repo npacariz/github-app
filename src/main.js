@@ -9,12 +9,14 @@ require('onsenui/css/onsenui.css');
 require('./assets/onsen-css-components.css')
 require('./assets/theme.css')
 
+
 import App from './App.vue';
 
 Vue.use(VueOnsen);
 
 new Vue({
   el: '#app',
+ 
   template:'<app></app>',
   components: { App }
 });
