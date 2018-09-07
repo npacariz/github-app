@@ -49,8 +49,8 @@ import Profile from './Profile.vue'
         title: 'test',
         query: '',
         listOfRepo: [],
-        spiner: false,
         type: 'repository',
+        spiner: false, 
         error: false,
         isSearched: false
       };
@@ -58,7 +58,10 @@ import Profile from './Profile.vue'
     methods: {
       takeToProfilePage() {
 
-        this.$emit('push-page', Profile)
+        this.$emit('push-page', {
+          extends: Profile,
+          onsNavigatorProps: {username: this.query }
+          })
       }
     },
     watch: {
@@ -72,8 +75,10 @@ import Profile from './Profile.vue'
             this.error = false;
           })
           .catch((error) => {
-             this.error = true;
-             this.isSearched = false
+             if ( error.response.status === 404 ) {
+                this.error = true;
+                this.isSearched = false
+             }
           })
           .finally(() => {this.spiner = false})
         }else{
